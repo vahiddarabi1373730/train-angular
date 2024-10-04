@@ -1,0 +1,20 @@
+<header>
+  <app-header [user]="user()" [headerTpl]="headerTpl"></app-header>
+  <ng-template #headerTpl>
+    <h1>This is Input Header</h1>
+    <h2>{{ user().id }}</h2>
+  </ng-template>
+</header>
+<div>
+  <app-content [user]="user()" [contentTpl]="contentTpl"></app-content>
+  <ng-template #contentTpl>
+    <h1>This is Input Content</h1>
+    <h2>{{ user().name }}</h2>
+  </ng-template>
+</div>
+<footer>
+  <app-footer [footerTpl]="footerTpl"></app-footer>
+  <ng-template let-data #footerTpl>
+    <app-actions></app-actions>
+  </ng-template>
+</footer>

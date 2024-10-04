@@ -1,0 +1,10 @@
+<ng-container
+  [ngTemplateOutlet]="contentTpl() || defaultContent"
+  [ngTemplateOutletContext]="{userMamado:user()}">
+</ng-container>
+
+<!--let-user='user':'userMamado'=>دقیقا باید برابر {userMamado:user()} باشد-->
+<ng-template #defaultContent let-user='userMamado'>
+  <h1>This Is Default Content</h1>
+  <h2>{{ user.name }}</h2>
+</ng-template>

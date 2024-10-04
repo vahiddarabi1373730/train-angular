@@ -1,0 +1,9 @@
+<ng-container
+  [ngTemplateOutlet]="footerTpl() || defaultFooterTpl"
+  [ngTemplateOutletContext]="{$implicit:{user:user()}}"
+  [ngTemplateOutletInjector]="injector"
+></ng-container>
+<ng-template #defaultFooterTpl let-data>
+  <h1>This Is Default Footer</h1>
+  <h2>{{ data.user.email }}</h2>
+</ng-template>

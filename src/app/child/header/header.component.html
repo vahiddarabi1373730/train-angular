@@ -1,0 +1,13 @@
+<!--این syntax به ما این را نشان میدهد-->
+<!--{$implicit:{user:user()}} => let-data= {user:user()}-->
+<!--data={user:user()}-->
+
+<ng-container
+  [ngTemplateOutlet]="headerTpl() || defaultHeader"
+  [ngTemplateOutletContext]="{$implicit:{user:user()}}">
+</ng-container>
+
+<ng-template #defaultHeader let-data>
+  <h1>This Is Default Header</h1>
+  <h2>{{ data.user.id }}</h2>
+</ng-template>
