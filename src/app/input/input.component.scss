@@ -1,0 +1,29 @@
+:host {
+  & input {
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  &.disabled input {
+    pointer-events: none;
+    user-focus: none;
+    user-select: none;
+  }
+
+  &.bg-red input {
+    background: red;
+  }
+
+  &.bg-blue input {
+    background: blue;
+  }
+
+  &.textColorRed input {
+    color: red;
+  }
+
+  &.textColorBlue input {
+    color: blue;
+  }
+}

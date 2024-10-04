@@ -1,0 +1,29 @@
+:host {
+  & button {
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  &.disabled button {
+    pointer-events: none;
+    user-focus: none;
+    user-select: none;
+  }
+
+  &.bg-red button {
+    background: red;
+  }
+
+  &.bg-blue button {
+    background: blue;
+  }
+
+  &.textColorRed button {
+    color: red;
+  }
+
+  &.textColorBlue button {
+    color: blue;
+  }
+}
