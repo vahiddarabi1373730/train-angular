@@ -1,0 +1,24 @@
+<!--//exportAs-->
+<!--&lt;!&ndash;<input #input>&ndash;&gt;-->
+<!--با نوستن #input در واقع ما یک instanc ار input میگیریم.حالا اگر بخواهیم این instance از جای دیگریگرفته شود-->
+<!--باید-->
+<!--#input='exportAsValue'-->
+<!--را بنویسیم.-->
+<!--درر این صورت instance دیگر یک instance از المان input نیست بلکه یک instance از ان دایرکتیو ای که برای آن متغیر exportAs تعریف کردیم-->
+
+
+<!--// حالا اگر نخواهیم از exportAs استفاده کنیم بایر viewChild استفاده کنیم و به عنوان option مقدار red را برای آن ست کنیم که در این صورت مقدار red در واقع همان instance ما است-->
+
+
+<!--//پارت اول-->
+<!--<app-banner #banner></app-banner>-->
+<!--<button (click)="showDetail()">Show Detail</button>-->
+
+
+<!--//پارت دوم-->
+<!--<button #button='appCanDisabled' [appCanDisabled]="false">Export As</button>-->
+<!--<button (click)="button.toggleColor()">Change Background Color</button>-->
+
+<!--//پارت سوم-->
+<button #button [appCanDisabled]="false">Export As</button>
+<button (click)="instanceButton().toggleColor()">Change Background Color</button>

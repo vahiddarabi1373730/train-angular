@@ -1,0 +1,17 @@
+div {
+  border: 5px solid rebeccapurple;
+  margin-bottom: 20px;
+
+  & button.disabled {
+    cursor: copy;
+  }
+
+  & button.red {
+    background: red;
+  }
+
+  & button.blue {
+    background: blue;
+  }
+
+}

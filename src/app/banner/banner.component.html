@@ -1,0 +1,8 @@
+<div>
+  <h1>Banner</h1>
+  <h3 *ngIf="isShow"> Detail</h3>
+  <button (click)="showDetail()">Show Detail</button>
+  <button #button='appCanDisabled' [appCanDisabled]="false">Toggle Disabled</button>
+  <button (click)="button.toggleColor()">Toggle Disabled</button>
+</div>
+
