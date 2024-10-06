@@ -1,0 +1,18 @@
+<h1>THIS IS DYNAMIC COMPONENT</h1>
+
+<!--مرحله 2-->
+<ng-container #container></ng-container>
+
+
+<!--مرجله7-->
+<!--<app-content></app-content>-->
+
+
+<!--مرحله 8-->
+<ng-template #content>
+  <app-content></app-content>
+</ng-template>
+
+<h2>This Is End Of Dynamic Component</h2>
+<button (click)="createChildComponent()">Create Component</button>
+<button (click)="deleteChildComponent()">Destroy Component</button>
