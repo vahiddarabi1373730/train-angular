@@ -1,0 +1,54 @@
+<h1 i18n>this is a localization app</h1>
+<h3 i18n>welcome to my app</h3>
+
+<!--ابتدا به المان هایی که میخواهیم ترجمه شوند i18n میدهیم-->
+<!--سپس در package.json مینویسیم:-->
+<!--در قسمت اسکریپت ها-->
+<!--"i18n:extract": "ng extract-i18n &#45;&#45;output-path src/locale"-->
+
+
+<!--سپس-->
+<!--npm i @angular/localize-->
+
+
+<!--سپس-->
+<!--npm run i18n:extract-->
+
+<!--سپس در فایل locale ساخته شده-->
+<!--یک کپی گرفته و پسوند.ir میدهیم-->
+
+
+<!--سپس به ازای هر source-->
+<!--ترجمه را در تارگت مینویسیم-->
+<!--<source>this is a localization app</source>-->
+<!--<target>این یک منطقه سازی است و تمام</target>-->
+
+
+<!--سپس در angular.json-->
+<!--"i18n": {-->
+<!--"sourceLocale": "en-US",-->
+<!--"locales": {-->
+<!--"ir": {-->
+<!--"baseHref": "",-->
+<!--"translation": "src/locale/messages.ir.xlf"-->
+<!--}-->
+<!--}-->
+<!--  },-->
+
+
+<!--سپس در configuration + build + architect-->
+<!--"ir": {-->
+<!--"localize": [-->
+<!--"ir"-->
+<!--]-->
+<!--}-->
+
+
+<!--serve=>configuration:-->
+<!--"ir": {-->
+<!--"browserTarget": "train-angular-feature:build:ir"-->
+<!--}-->
+
+
+سپس
+<!--ng s &#45;&#45;configuration=ir-->

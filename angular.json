@@ -4,6 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "train-angular-feature": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ir": {
+            "baseHref": "",
+            "translation": "src/locale/messages.ir.xlf"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -77,6 +86,11 @@
               "sourceMap": true,
               "ssr": false,
               "prerender": false
+            },
+            "ir": {
+              "localize": [
+                "ir"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -89,6 +103,9 @@
             },
             "development": {
               "buildTarget": "train-angular-feature:build:development"
+            },
+            "ir": {
+              "browserTarget": "train-angular-feature:build:ir"
             }
           },
           "defaultConfiguration": "development"
@@ -120,5 +137,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "1ae1015f-3be5-44c0-8342-e80d463855f7"
   }
 }
