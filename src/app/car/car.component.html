@@ -1,0 +1,4 @@
+<h1 *ngIf="isShow;else loading">{{ name }}</h1>
+<ng-template #loading>
+  <h1>Loading...</h1>
+</ng-template>
