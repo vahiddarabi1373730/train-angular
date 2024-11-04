@@ -1,7 +1,7 @@
-import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { BannerComponent } from './banner/banner.component';
-import { canDisabledDirective } from './banner/_directives/can-disabled.directive';
+import {Component, ElementRef, ViewChild, viewChild} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {BannerComponent} from './banner/banner.component';
+import {canDisabledDirective} from './banner/_directives/can-disabled.directive';
 
 @Component({
   selector: 'app-root',
@@ -24,10 +24,10 @@ export class AppComponent {
   // instanceButton!: canDisabledDirective;
 
   // به وسیله سیگنال
-  instanceButton = viewChild.required<ElementRef, canDisabledDirective>(
-    'button',
-    {
-      read: canDisabledDirective,
-    },
-  );
+  // instanceButton = viewChild.required<ElementRef, canDisabledDirective>(
+  //   'button',
+  //   {
+  //     read: canDisabledDirective,
+  //   },
+  // );
 }
