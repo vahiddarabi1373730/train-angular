@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ChildComponent } from './child/child.component';
+import { LoggingService } from './_services/logging.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-})
-export class AppComponent {
-  title = 'train-angular-feature';
+  // مرحله4
+  // اینجا قبول است
+  // viewProviders: [LoggingService],
 
-  name = 'vahid';
-}
+  // مرحله4
+  // اینجا قبول نسیت
+  // providers: [LoggingService],
+})
+export class AppComponent {}
