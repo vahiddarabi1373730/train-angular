@@ -1,0 +1,12 @@
+<h1>Demo Of NgComponentOutlet</h1>
+<ng-container
+  [ngComponentOutlet]="component()"
+  [ngComponentOutletInputs]="config()"
+  [ngComponentOutletContent]="content()!">
+
+</ng-container>
+<ng-template #contentTpl>
+  <app-widget-content></app-widget-content>
+</ng-template>
+
+<button (click)="onClick()">Create Widget Component</button>
