@@ -1,0 +1,13 @@
+<!--در مرحله 2-->
+<!--میخواهیم از سیگنال model استفتده کنیم-->
+<h1>This Is Model Signal</h1>
+<h3 *ngIf="showMore()">This Is Description</h3>
+<button (click)="showMore.set(!showMore())">{{ showMore() ? 'Show Less' : 'Show More' }}</button>
+
+
+<!--مرحله 1 -->
+<!--در این مرحله با استفاده ار Input Output معمولی کار کردیم-->
+<!--<h1>This Is Model Signal</h1>-->
+<!--<h3 *ngIf="isShow">This Is Description</h3>-->
+<!--<button (click)="isShowChange.emit(!isShow)">{{ isShow ? 'Show Less' : 'Show More' }}</button>-->
+

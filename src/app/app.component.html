@@ -1,0 +1,11 @@
+<button (click)="showMore=!showMore">{{ showMore ? 'Show Less' : 'Show More' }}</button>
+<app-child [(showMore)]="showMore"></app-child>
+
+
+<!--[(isShow)]="showMore"-->
+<!--کوتاه شده-->
+<!--isShow=[showMore]-->
+<!--(isShowChange)="showMore=!showMore"-->
+<!--<button (click)="showMore=!showMore">{{ showMore ? 'Show Less' : 'Show More' }}</button>-->
+<!--<app-child [(isShow)]="showMore"></app-child>-->
+
