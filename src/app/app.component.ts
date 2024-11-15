@@ -2,6 +2,7 @@ import {
   Component,
   ComponentRef,
   ElementRef,
+  signal,
   TemplateRef,
   viewChild,
   ViewContainerRef,
@@ -33,12 +34,16 @@ export class AppComponent {
   private componentRef!: ComponentRef<ChildComponent>;
 
   // مرحله7
-  private contentProjection = viewChild.required(ContentComponent, {
-    read: ElementRef,
-  });
+  // private contentProjection = viewChild.required(ContentComponent, {
+  //   read: ElementRef,
+  // });
 
   //مرحله8
   private contentTpl = viewChild.required('contentTpl', { read: TemplateRef });
+
+  // مرحله9
+  // ارسال input دیتا به ContentComponent
+  headerContent = signal<string>('Header Content');
 
   createChildComponent() {
     // مرحله2
@@ -49,18 +54,21 @@ export class AppComponent {
 
     // مرحله7
     // content projection => با استفاده از ElementRef
-    this.componentRef = this.vcr().createComponent(ChildComponent, {
-      projectableNodes: [[this.contentProjection().nativeElement]],
-    });
+    // this.componentRef = this.vcr().createComponent(ChildComponent, {
+    //   projectableNodes: [[this.contentProjection().nativeElement]],
+    // });
 
     // مرحله8
     // content projection => با استفاده از TemplateRef
-    // const contentTpl = this.vcr().createEmbeddedView(this.contentTpl());
-    // this.componentRef = this.vcr().createComponent(ChildComponent, {
-    //   projectableNodes: [contentTpl.rootNodes],
-    // });
+    const contentTpl = this.vcr().createEmbeddedView(this.contentTpl(), {
+      headerContent: this.headerContent(),
+    });
+    this.componentRef = this.vcr().createComponent(ChildComponent, {
+      projectableNodes: [contentTpl.rootNodes],
+    });
 
-    // 5=>اگر بخواهیم input برای کامپوننت set کنیم
+    // مرحله5
+    // اگر بخواهیم input برای کامپوننت set کنیم
     this.componentRef!.setInput('name', 'mamadoo');
 
     // مرحله6

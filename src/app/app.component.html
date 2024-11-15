@@ -5,13 +5,19 @@
 
 
 <!--مرجله7-->
-<app-content></app-content>
+<!--<app-content></app-content>-->
 
 
 <!--مرحله 8-->
 <!--<ng-template #contentTpl>-->
 <!--  <app-content></app-content>-->
 <!--</ng-template>-->
+
+
+<!--مرحله 9-->
+<ng-template #contentTpl let-headerContent='headerContent'>
+  <app-content [headerContent]="headerContent"></app-content>
+</ng-template>
 
 <h2>This Is End Of Dynamic Component</h2>
 <button (click)="createChildComponent()">Create Component</button>
