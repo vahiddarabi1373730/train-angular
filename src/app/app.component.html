@@ -1,0 +1,53 @@
+<div>
+  <h1>This is Structural Directive</h1>
+  <!--  مرحله 1-->
+  <!--  هنگامی که از * استفاده میکنیم در پس زمینه یک ng-template ایجتد میشود-->
+  <!--  داخل آن المان ما قرار میگیرد-->
+  <!--  ng-template هم چون lazy است نمایش داده نمیشود-->
+
+  <!--  این کد -->
+  <!--  <ng-template hideBanner>-->
+  <!--    <section>-->
+  <!--      <h1>Part1 ❤</h1>-->
+  <!--      <h3>Vahid Darabi</h3>-->
+  <!--    </section>-->
+  <!--  </ng-template>-->
+
+  <!--  برابر است با -->
+  <!--  <section *hideBanner>-->
+  <!--    <section>-->
+  <!--      <h1>Part1 ❤</h1>-->
+  <!--      <h3>Vahid Darabi</h3>-->
+  <!--    </section>-->
+  <!--  </section>-->
+
+
+  <!--  مرحله4-->
+  <!--   اگر بخواهیم Input-->
+  <!--   دیگری به دایرکتیو بدهیم-->
+  <section *hideBanner="3000 as time;vahid placeHolder;let counter= counter">
+    <h1>Part1 💗</h1>
+    <h3>This Banner is disappear in {{ time }} second.It disappear in {{ counter }}</h3>
+  </section>
+  <ng-template #placeHolder let-hideAfter='hideBanner' let-$implicit>
+    <h1>This Is PlaceHolder💘</h1>
+    <h1>It Was Visible For {{ hideAfter }} Second</h1>
+    <h1>Default Value Is {{ $implicit.otherDefaultValue }}</h1>
+  </ng-template>
+</div>
+
+
+<!--نکته مهم مهم مهم مهم مهم مهم مهم مهم-->
+
+<!--1:-->
+<!--let-$implicit:به ما $implicit را میدهد-->
+
+<!--2:-->
+<!--let-hideAfter='hideBanner': به ما مقدار hideBanner را که در context است را میدهد-->
+<!--let-hideAfter(نام این قسمت اختیاری)-->
+<!--='hideBanner'(دقیفا نامی که در context است)-->
+
+<!--3-->
+<!--let counter= counter-->
+<!--let counter(نام این قسمت اختیاری)-->
+<!--=counter:(نامی که در context است)-->
