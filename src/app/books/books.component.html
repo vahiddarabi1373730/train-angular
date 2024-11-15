@@ -1,0 +1,8 @@
+<ng-container *ngFor="let book of books()">
+  <div style="display: flex;align-items: center;gap: 16px">
+    <span (click)='changeRoute(book.id)'>{{ book.id }}</span>
+    <h1>{{ book.name }}</h1>
+  </div>
+</ng-container>
+<h1>{{ defaultValue() }}</h1>
+<button (click)="changeDefaultValue()">Change DefaultValue</button>
