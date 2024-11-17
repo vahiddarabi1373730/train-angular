@@ -1,0 +1,10 @@
+section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & button {
+    //width: 20px;
+    height: 20px;
+  }
+}

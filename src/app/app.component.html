@@ -1,0 +1,19 @@
+<ng-container *ngIf="users$ | async as users">
+  <ng-container *ngFor="let user of users">
+    <section>
+      <div>
+        <h3>{{ user.id }}</h3>
+        <h3>{{ user.name }}</h3>
+      </div>
+      <button (click)="onDetail(user.id)">Detail</button>
+    </section>
+    <hr/>
+  </ng-container>
+</ng-container>
+
+<!-- مرحله3-->
+<!-- ایجاد یک loading زمانی که در حال fetch دیتا در resolver هستیم-->
+<ng-container *ngIf="loading$ | async">
+  <h1>Loading...</h1>
+</ng-container>
+<router-outlet></router-outlet>
