@@ -1,0 +1,40 @@
+<!--مرحله6-->
+<!--loading-->
+@if (todos.isLoading()) {
+  <h1>Loading...</h1>
+}
+
+<!--مرحله8-->
+<!--فیلتر کردن-->
+<div>
+  <label>Filter</label>
+  <input (input)="query.set($any($event.target).value)">
+</div>
+
+<button (click)="addUser()">Add User</button>
+<button (click)="clear()">Clear</button>
+<button (click)="reload()">Reload</button>
+@if (!todos.isLoading()) {
+  <ul>
+    <!--  مرحله5-->
+    <!--  داشتن خطا-->
+    @if (todos.error()) {
+      <h1>{{ todos.error() }}</h1>
+    }
+    @for (user of todos.value(); track user.id) {
+      <div>
+        <li>{{ user.id }}</li>
+        <li>{{ user.userId }}</li>
+        <li>{{ user.title }}</li>
+        <li>{{ user.completed }}</li>
+      </div>
+    } @empty {
+      <h1>NOTHING TODO FOR DISPLAY</h1>
+    }
+    <!--   مرحله4-->
+    <!--   empty todos-->
+
+  </ul>
+
+}
+
