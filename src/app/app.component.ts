@@ -25,6 +25,13 @@ import { ButtonComponent, SelectComponent } from 'my-lib';
 // در این directory
 // npm publish --registry http://localhost:4873
 
+/////////////// NPM
+// برای npm هم مسیر همین است
+// فقط تا --registry را میزنیم
+// بعد آن را نمیزنیم
+// مثلا:
+// npm adduser
+
 @Component({
   selector: 'app-root',
   standalone: true,
