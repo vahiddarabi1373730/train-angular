@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { ButtonComponent, SelectComponent } from 'my-lib';
+import { ButtonComponent } from 'my-lib';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [ButtonComponent, SelectComponent],
+  imports: [ButtonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  standalone: true,
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'users';
+}
