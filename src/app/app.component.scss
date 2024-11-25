@@ -1,0 +1,6 @@
+// چون کامپوننت app  از نوع shadowDom است و کامپوننت child از نوع shadowDom است
+// استایل های app روی child تاثی نمیگذارد
+// چون هر کدام داخل یک shadow-root جداگانه هستند
+h1 {
+  background: red;
+}

@@ -1,0 +1,6 @@
+// چون کامپوننت child از نوع shadowDom است و کامپوننت grandChild از نوع emulated است
+// استایل های child روی grandChild تاثی میگذارد
+// چون هر دو داخل یک shadow-root هستند
+h1 {
+  background: blue;
+}
