@@ -1,5 +1,13 @@
-<p>child works!</p>
-<h1>{{ name }}</h1>
-<h1>{{ info.id }}</h1>
-<h1>{{ info.fullName }}</h1>
-<ng-content></ng-content>
+<!--<p>child works!</p>-->
+<!--<h1>{{ name }}</h1>-->
+<!--<h1>{{ info.id }}</h1>-->
+<!--<h1>{{ info.fullName }}</h1>-->
+<!--<ng-content></ng-content>-->
+
+
+<!-- مرحله آخر-->
+<!-- مثال برای فهمیدن ngAfterViewChecked-->
+<div #containerTpl>
+  <li *ngFor="let item of items">{{ item }}</li>
+</div>
+<button (click)="addItem()">Add Item</button>

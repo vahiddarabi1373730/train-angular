@@ -25,12 +25,16 @@ import {
   ChangeDetectorRef,
   Component,
   DoCheck,
+  ElementRef,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
   SimpleChanges,
+  TemplateRef,
+  ViewChild,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export interface InfoInterface {
   id: number;
@@ -39,7 +43,7 @@ export interface InfoInterface {
 
 @Component({
   selector: 'app-child',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './child.component.html',
   styleUrl: './child.component.scss',
   standalone: true,
@@ -93,20 +97,6 @@ export class ChildComponent
     console.log('ngAfterViewInit');
   }
 
-  ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked');
-  }
-
-  ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked');
-  }
-
-  // زمانی که changeDetection انگولار اجرا میشود فراخوانی میشود
-  // اگر reference یک Input که از نوع آبجکت است تغییر نکند ولی یکی از property های آن تغییر کند ngOnChanges فراخوانی نمیشود ولی ngDoCheck فراخوانی میشود
-  ngDoCheck(): void {
-    console.log('ngDoCheck');
-  }
-
   // زمانی که reference @Input() تغییر کند
   ngOnChanges(changes: SimpleChanges): void {
     console.log('changes');
@@ -122,5 +112,44 @@ export class ChildComponent
   // مقدار دهی شده اند
   ngOnInit(): void {
     console.log('ngOnInit');
+  }
+
+  // زمانی که changeDetection انگولار اجرا میشود فراخوانی میشود
+  // اگر reference یک Input که از نوع آبجکت است تغییر نکند ولی یکی از property های آن تغییر کند ngOnChanges فراخوانی نمیشود ولی ngDoCheck فراخوانی میشود
+  ngDoCheck(): void {
+    // حال اگر scrollToBottom را در این جا فراخوانی کنیم
+    // چون هنوز DOM ما RENDER شدن آن کامل نشده.یعنی آخرین آیتم که اضافه کردم در DOM قرار نگرفته
+    // پس SCROLL ما به یکی مانده به آخر میرود
+    // ولی در ngAfterViewChecked چون RENDER شدن DOM تمام شده
+    // یعنی آخرین المان هم اضافه شده
+    // SCROLL ما به آخرین المان میرسد
+    this.scrollToBottom();
+    console.log('ngDoCheck');
+  }
+
+  // بعد از فراخوانی ChangeDetection و بعد از render شدن content ها  فراخوانی میشود
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked');
+  }
+
+  // بعد از فراخوانی ChangeDetection و بعد از render شدن DOM فراخوانی میشود
+  ngAfterViewChecked(): void {
+    // با فراخوانی این فانکشن در این قسمت دیگر اسکرول ما به اول باز نمیگردد و اسکرول در همان جایی میاستد که آیتم جدید اضافه شده
+    // this.scrollToBottom();
+    console.log('ngAfterViewChecked');
+  }
+
+  //مرحله آخر
+  //مثال برای فهمیدن ngAfterViewChecked
+  @ViewChild('containerTpl', { static: true }) containerTpl!: ElementRef;
+  protected items = ['item1', 'item2', 'item3'];
+
+  addItem() {
+    this.items.push(`item${this.items.length + 1}`);
+  }
+
+  scrollToBottom() {
+    this.containerTpl.nativeElement.scrollTop =
+      this.containerTpl.nativeElement.scrollHeight;
   }
 }
