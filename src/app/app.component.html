@@ -1,0 +1,17 @@
+<h1>This Is Parent</h1>
+
+<!--مرحله1-->
+<!--<app-child></app-child>-->
+
+<!--مرحله2-->
+<!--<div class="host-parent">-->
+<!--  <app-child [isHost]="false"></app-child>-->
+<!--</div>-->
+
+<!--مرحله3-->
+<app-child [isHost]="false"></app-child>
+<div class="host-parent">
+  <app-child [isHost]="true"></app-child>
+</div>
+<app-child [isHost]="true"></app-child>
+

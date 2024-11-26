@@ -1,0 +1,36 @@
+//مرحله1
+//:host {
+//  display: block;
+//  background: red;
+//}
+
+
+//مرحله2
+// host ای که prent آن دارای کلاس host-parent دارد
+//:host-context(.host-parent) {
+//  background: blue;
+//}
+
+
+//مرحله3
+// یعنی host ای که کلاس hostBinding را دارد
+:host(.hostBinding) {
+  display: block;
+  background: green;
+}
+
+
+//مرحله4
+// در این مورد این style به همهی پروزه تاثیر میگزارد.یعنی المان های parent و خودش و child هایش
+//::ng-deep {
+//  h1 {
+//    color: red;
+//  }
+//}
+
+// در این مورد این style به همه ی  پروزه به جز parent تاثیر میگزارد.یعنی المان های خودش و child هایش
+//:host ::ng-deep {
+//  h1 {
+//    color: red;
+//  }
+//}
