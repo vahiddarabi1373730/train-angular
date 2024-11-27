@@ -1,0 +1,24 @@
+@if (isLoadUser; as isLoadUser) {
+  @for (user of user; track user.id; let i = $index) {
+    <div>
+      <h1>{{ user.id }}</h1>
+      <h1>{{ user.name }}</h1>
+      @switch (user.type) {
+        @case ('admin') {
+          <h1>{{ user.type }}</h1>
+        }
+        @case ('user') {
+          <p>{{ user.type }}</p>
+        }
+        @default {
+          <h2>{{ user.type }}</h2>
+        }
+      }
+    </div>
+  } @empty {
+    <h1>List Item Is Empty</h1>
+  }
+
+} @else {
+  <h1>Dont Permission For Load User</h1>
+}
