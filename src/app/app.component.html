@@ -1,0 +1,20 @@
+<!-- مرحله1-->
+<!--ElementRef as ViewChild-->
+<!--<h1 #viewChild1Tpl1>This Is ViewChild</h1>-->
+
+<!--مرحله2-->
+<!--Component as ViewChild-->
+<!--<app-child #viewChild1Tpl2></app-child>-->
+
+<!--مرحله3-->
+<!--Directive as ViewChild-->
+<!--<div #viewChild1Tpl3 appCustom>This Is Directive</div>-->
+
+<!--مرحله4-->
+<!--ViewContainerRef as ViewChild-->
+<!--<ng-container #viewChild1Tpl4></ng-container>-->
+
+
+<!--مرحله5-->
+<!--Several Component as ViewChild-->
+<app-child *ngFor="let task of tasks" [taskName]="task"></app-child>
