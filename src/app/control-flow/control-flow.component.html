@@ -1,0 +1,81 @@
+<!--older version angular-->
+<!--<div *ngIf="paymentSuccessful; else errorMessage">-->
+<!--  Payment successful! Thank you for your purchase.-->
+<!--</div>-->
+<!--<ng-template #errorMessage>-->
+<!--  Oops! Payment failed. Please try again.-->
+<!--</ng-template>-->
+
+
+<!--new version angular-->
+<!--@if (paymentSuccessful) {-->
+<!--  Payment successful! Thank you for your purchase.-->
+<!--} @else {-->
+<!--  Oops! Payment failed. Please try again.-->
+<!--}-->
+
+<!--/////////////////////////////////////////////////////-->
+
+<!--older version angular-->
+<!--<div [ngSwitch]="paymentStatus">-->
+<!--  <h1 *ngSwitchCase="'success'">Success</h1>-->
+<!--  <h2 *ngSwitchCase="'pending'">Pending</h2>-->
+<!--</div>-->
+
+<!--new version angular-->
+<!--@switch (paymentStatus) {-->
+<!--  @case ('Success') {-->
+<!--    <h1>Success</h1>-->
+<!--  }-->
+<!--  @case ('Pending') {-->
+<!--    <h1>Pending</h1>-->
+<!--  }-->
+<!--}-->
+
+<!--/////////////////////////////////////////////////////-->
+
+<!--@for (item of items; track item) {-->
+<!--  <h1>{{ item }}</h1>-->
+<!--} @empty {-->
+<!--  <h1>Empty List</h1>-->
+<!--}-->
+
+
+<!--/////////////////////////////////////////////////////-->
+<!--Deferrable views-->
+<!--@defer (on viewport) {-->
+<!--  <review-list/>-->
+<!--} @loading {-->
+<!--  Loading…-->
+<!--} @error {-->
+<!--  Loading failed :(-->
+<!--} @placeholder {-->
+<!--  <img src="placeholder.png">-->
+<!--}-->
+
+
+<!--/////////////////////////////////////////////////////-->
+<!--New Lifecycle Hooks-->
+<!--afterRender — register a callback to be invoked each time the application finishes rendering-->
+<!--afterNextRender — register a callback to be invoked the next time the application finishes rendering-->
+
+<!--/////////////////////////////////////////////////////-->
+<!--Input value transforms-->
+<!--@Input({ transform: booleanAttribute }) isEnabled: boolean = false;-->
+
+
+<!--/////////////////////////////////////////////////////-->
+<!--Experimental view transitions support-->
+<!--withViewTransitions-->
+<!--export const appConfig: ApplicationConfig = {-->
+<!--  providers: [provideRouter(routes, withViewTransitions())],-->
+<!--  };-->
+
+
+<!--Defer loading of the animations module-->
+<!--is a function in Angular that allows you to enable animations in your application asynchronously. This means that the animations won't be rendered until the renderer is loaded, which can improve initial load performance.-->
+<!--Improved Initial Load Performance: By deferring the loading of animation resources, you can reduce the initial bundle size and speed up the initial page load.-->
+<!--Lazy Loading of Animations: You can load animations only when they are needed, further optimizing performance-->
+<!--bootstrapApplication(RootCmp, {-->
+<!--providers: [provideAnimationsAsync()]-->
+<!--});-->
