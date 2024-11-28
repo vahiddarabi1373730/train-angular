@@ -1,0 +1,8 @@
+div {
+  display: flex;
+  gap: 16px;
+}
+
+h1:first-child {
+  cursor: pointer;
+}

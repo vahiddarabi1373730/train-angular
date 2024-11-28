@@ -1,0 +1,8 @@
+@for (todo of todos(); track todo.id) {
+  <div>
+    <h1 (click)="onClick(todo)">{{ todo.id }}</h1>
+    <h1>{{ todo.title }}</h1>
+    <a [routerLink]="['',{outlets:{detail:['todos',todo.id]}}]" [queryParams]="todo
+">detail</a>
+  </div>
+}

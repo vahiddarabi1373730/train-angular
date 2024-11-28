@@ -1,0 +1,13 @@
+section {
+  display: flex;
+  gap: 12px;
+
+  & .sidebar {
+    width: 30%;
+  }
+
+  & .detail {
+    width: 70%;
+  }
+
+}

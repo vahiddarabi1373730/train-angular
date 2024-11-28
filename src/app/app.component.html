@@ -1,0 +1,10 @@
+<button (click)="onClick('')">Users</button>
+<button (click)="onClick('todos')">Todos</button>
+<section>
+  <div class="sidebar">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="detail">
+    <router-outlet name="detail"></router-outlet>
+  </div>
+</section>
