@@ -1,0 +1,15 @@
+section {
+  display: flex;
+
+  & div {
+    width: 50%;
+
+    &:first-child {
+      background: coral;
+    }
+
+    &:not(:first-child) {
+      background: cornflowerblue;
+    }
+  }
+}

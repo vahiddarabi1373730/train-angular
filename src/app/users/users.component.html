@@ -1,0 +1,8 @@
+@for (user of users(); track user.id) {
+  <div>
+    <h1>{{ user.id }}</h1>
+    <h1>{{ user.name }}</h1>
+    <a [routerLink]="'users/'+user.id" [queryParams]="user">detail</a>
+    <a [routerLink]="['',{outlets:{detail:['users',user.id]}}]" [queryParams]="user">detail outlet</a>
+  </div>
+}
