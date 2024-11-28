@@ -1,0 +1,9 @@
+<ng-container *ngFor="let user of users()">
+  <div>
+    <h1>{{ user.id }}</h1>
+    <h1>{{ user.name }}</h1>
+    <h1>{{ user.email }}</h1>
+    <button (click)="onClick(user)">Detail</button>
+  </div>
+</ng-container>
+
