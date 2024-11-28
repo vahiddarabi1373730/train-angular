@@ -1,0 +1,17 @@
+<section class="ful-height">
+  @defer () {
+    <div *ngFor="let todo of todos()">
+      <h1>{{ todo.userId }}</h1>
+      <h1>{{ todo.title }}</h1>
+    </div>
+  } @placeholder () {
+    <h1>
+      This Is Placeholder
+    </h1>
+  } @loading () {
+    <main>
+      This Is Loading...
+    </main>
+  }
+</section>
+

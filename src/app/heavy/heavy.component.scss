@@ -1,0 +1,21 @@
+section {
+  display: block;
+  height: 300px;
+  width: 100%;
+  background: yellowgreen;
+  overflow: auto;
+
+  & div {
+    display: flex;
+    gap: 16px;
+  }
+
+}
+
+
+h1 {
+  display: block;
+  height: 300px;
+  width: 100%;
+  background: cornflowerblue;
+}
