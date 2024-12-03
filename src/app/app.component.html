@@ -1,0 +1,20 @@
+<!--مرحله 1 با primeNg-->
+<!--<p-virtualScroller-->
+<!--  [value]="numbers()"-->
+<!--  scrollHeight="200px"-->
+<!--  itemSize="25"-->
+<!--&gt;-->
+<!--  <ng-template let-number pTemplate="item">-->
+<!--    <div>-->
+<!--      {{ number }}-->
+<!--    </div>-->
+<!--  </ng-template>-->
+<!--</p-virtualScroller>-->
+
+<!--مرحله 2 با material-->
+<cdk-virtual-scroll-viewport appendOnly itemSize="25" class="example-viewport">
+  <div *cdkVirtualFor="let number of numbers()">
+    <p>{{ number }}</p>
+  </div>
+</cdk-virtual-scroll-viewport>
+
