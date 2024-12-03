@@ -1,0 +1,28 @@
+<h1>This is Child Component</h1>
+<!--class title را داشته باشد-->
+<ng-content select=".title"></ng-content>
+
+<!--id content1 را داشته باشد-->
+<ng-content select="#content1"></ng-content>
+
+<!--attribute content2 را داشته باشد-->
+<ng-content select="[content2]"></ng-content>
+
+<!--slot attribute = footer باشد-->
+<ng-content select="[slot='footer']"></ng-content>
+
+<!--ngProjectAs  باید برابر با ngProjectAs='footer' باشد-->
+<ng-content select="ngProjectAs='footer'"></ng-content>
+
+<!--ngProjectAs  باید برابر با test باشد-->
+<ng-content select="test"></ng-content>
+
+
+<!--فاز 2-->
+<!--reProjection-->
+<app-button>
+  <ng-container #refContainer></ng-container>
+  <ng-template #content>
+    <ng-content select="button-content"></ng-content>
+  </ng-template>
+</app-button>
