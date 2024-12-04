@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ChildComponent, InfoInterface } from './child/child.component';
 import { GrandChildComponent } from './grand-child/grand-child.component';
 
@@ -9,9 +9,10 @@ import { GrandChildComponent } from './grand-child/grand-child.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   info: InfoInterface = { id: 1, fullName: 'vahid darabi' };
   name = 'vahid';
+  family = signal<string>('darabi');
 
   onChangeName() {
     this.name = 'hamed';
@@ -23,5 +24,11 @@ export class AppComponent {
 
   onChangeInfoWithoutChangeDifference() {
     this.info.id = 100;
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.family.set('rahimi');
+    }, 1000);
   }
 }

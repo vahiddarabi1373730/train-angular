@@ -13,6 +13,12 @@ import { routes } from './app.routes';
 // ولی اگر این کد را نزاریم ما 13 تا لاگ داریم
 // 10 تا برای initialChangeDetection که همیشه است
 // 3 تا برای run شدن مجددا changeDetection
+
+// اگر از سیگنال ها استفاده کنیم
+// با وجود این که zoneless هستیم
+// changeDetection اجرا میشود
+//  dom ما Update میشود
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
