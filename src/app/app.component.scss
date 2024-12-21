@@ -1,0 +1,21 @@
+@use "mixin" as *;
+
+@mixin fontStyle {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+h1 {
+  @include fontStyle();
+  color: color(danger-light);
+}
+
+h2 {
+  @include fontStyle();
+  color: color(danger);
+}
+
+h3 {
+  @include fontStyle();
+  color: color(danger-heavy);
+}
