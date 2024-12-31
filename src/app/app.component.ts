@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { TodoService } from '../_services/todo.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,9 @@ import {Component} from '@angular/core';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  constructor(private todoService: TodoService) {
+    todoService.todo$$.subscribe((res) => {
+      console.log(res);
+    });
+  }
 }
