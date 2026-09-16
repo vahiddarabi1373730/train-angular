@@ -12,6 +12,8 @@ import { SampleComponent } from './sample/sample.component';
 import { ZipComponent } from './zip/zip.component';
 import { MappersComponent } from './mappers/mappers.component';
 import { OthersComponent } from './others/others.component';
+import {BufferWhenComponent} from "./buffer-when/buffer-when.component";
+import {BufferComponent} from "./buffer/buffer.component";
 
 @Component({
   selector: 'app-root',
@@ -30,6 +32,8 @@ import { OthersComponent } from './others/others.component';
     ZipComponent,
     MappersComponent,
     OthersComponent,
+    BufferWhenComponent,
+    BufferComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
