@@ -22,7 +22,7 @@
     "@angular/router": "^22.1.7",
     "@angular/ssr": "^22.1.8",
     "express": "^4.18.2",
-    "primeng": "^17.18.12",
+    "primeng": "^22.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
