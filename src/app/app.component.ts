@@ -1,6 +1,16 @@
-import {AfterViewInit, Component, computed, DestroyRef, inject, Injector, OnInit, signal,} from '@angular/core';
-import {SaveInterface} from './output/output.component';
-import {ToSignalComponent} from './to-signal/to-signal.component';
+import {
+  AfterViewInit,
+  Component,
+  computed,
+  DestroyRef,
+  inject,
+  Injector,
+  OnInit,
+  signal,
+} from '@angular/core';
+import { SaveInterface } from './output/output.component';
+import { ToSignalComponent } from './to-signal/to-signal.component';
+import { FormComponent } from './form/form.component';
 
 interface Address {
   country: string;
@@ -17,7 +27,7 @@ interface Person {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ToSignalComponent],
+  imports: [ToSignalComponent, FormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -29,11 +39,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   name = signal<string>('vahid');
   family = signal<string>('darabi');
   fullName = computed<string>(() => `${this.name()} ${this.family()}`);
-  pluck=signal<number>(1);
-  street = signal<string>("azadi");
+  pluck = signal<number>(1);
+  street = signal<string>('azadi');
 
   //بدنه تابع computed باید یک Pure Function باشد و فقط مقدار برگرداند (درخواست HTTP، لاگ زدن و تغییر مقادیر دیگر ممنوع است).
-  address=computed(()=>this.pluck() + this.street())
+  address = computed(() => this.pluck() + this.street());
   persons = signal<Person[]>([
     {
       address: { street: 'azadi', city: 'tehran', country: 'iran' },
@@ -97,11 +107,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {}
 
-  onSave(value:SaveInterface){
+  onSave(value: SaveInterface) {
     console.log(value);
   }
 
-
   //Model
-  isModalOpen=signal(false)
+  isModalOpen = signal(false);
 }
