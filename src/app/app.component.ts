@@ -1,23 +1,6 @@
-import {
-  AfterViewInit,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  Injector,
-  OnInit,
-  signal,
-} from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { interval, map, tap } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { ChildComponent } from './child/child.component';
-import {EffectComponent} from "./effect/effect.component";
-import {InputSignalComponent} from "./input-signal/input-signal.component";
-import { OutputComponent, SaveInterface } from './output/output.component';
-import { ModelComponent } from './model/model.component';
-import { ToSignalComponent } from './to-signal/to-signal.component';
-import { ToObservableComponent } from './to-observable/to-observable.component';
+import {AfterViewInit, Component, computed, DestroyRef, inject, Injector, OnInit, signal,} from '@angular/core';
+import {SaveInterface} from './output/output.component';
+import {ToSignalComponent} from './to-signal/to-signal.component';
 
 interface Address {
   country: string;
@@ -34,7 +17,7 @@ interface Person {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, ChildComponent, EffectComponent, InputSignalComponent, OutputComponent, ModelComponent, ToSignalComponent, ToObservableComponent],
+  imports: [ToSignalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

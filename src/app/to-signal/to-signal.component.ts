@@ -25,7 +25,6 @@ export class ToSignalComponent implements OnInit {
       ),
       {
         injector: this.injector,
-        rejectErrors: true,
       },
     );
   }
