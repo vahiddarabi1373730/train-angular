@@ -54,8 +54,8 @@ export class AppComponent {
   // پشتیبانی کامل از SSR (Server-Side Rendering): با سیستم Hydration و TransferState انگولار هماهنگ است؛ یعنی دیتایی که در سرور گرفته شده، دوباره در کلاینت fetch نمی‌شود و بدون Blink منتقل می‌شود.
   // نیاز نداشتن به RxJS Boilerplate: بدون نیاز به pipe ،switchMap یا Unsubscribe کردن دستی، مستقیماً یک ResourceRef دریافت می‌کنید.
   //اجرای خودکار و Eager: به محض فراخوانی در کامپوننت اجرا می‌شود (نیازی به subscribe() یا async pipe در تمپلیت ندارد).
-  todoHttpResource=httpResource<Todo>(()=>({
-    url:`https://jsonplaceholder.typicode.com/todos/${this.todoId()}`,
+  activeSymbolDetail=httpResource<Todo>(()=>({
+    url:`https://jsonplaceholder.typicode.com/todos/${10}`,
     method:'GET',
   }))
 
