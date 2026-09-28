@@ -18,6 +18,7 @@ interface Todo {
 export class AppComponent {
   http=inject(HttpClient);
   todoId=signal(1)
+  todoIdVal=1
 
   //1resource
 //   در تابع loader، این سه مقدار به عنوان یک آبجکت به شما داده می‌شوند تا کنترل کاملی روی عملیات واکشی داشته باشید:
@@ -39,13 +40,13 @@ export class AppComponent {
 
 
   //مدیریت وضعیت یکپارچه (State): دیگر نیازی به تعریف متغیرهای جداگانه مثل isLoading ،error و data نیست؛ همه در یک آبجکت یکپارچه ارائه می‌شوند.
-  todo=resource({
-    params:()=>({id:this.todoId()}),
-    loader:async ({params,abortSignal,previous})=>{
-      const res=await fetch(`https://jsonplaceholder.typicode.com/todos/${params.id}`,{signal:abortSignal})
-      return await res.json() as Todo
-    }
-  })
+  // todo=resource({
+  //   params:()=>({id:this.todoId()}),
+  //   loader:async ({params,abortSignal,previous})=>{
+  //     const res=await fetch(`https://jsonplaceholder.typicode.com/todos/${params.id}`,{signal:abortSignal})
+  //     return await res.json() as Todo
+  //   }
+  // })
 
 
 
@@ -54,9 +55,10 @@ export class AppComponent {
   // پشتیبانی کامل از SSR (Server-Side Rendering): با سیستم Hydration و TransferState انگولار هماهنگ است؛ یعنی دیتایی که در سرور گرفته شده، دوباره در کلاینت fetch نمی‌شود و بدون Blink منتقل می‌شود.
   // نیاز نداشتن به RxJS Boilerplate: بدون نیاز به pipe ،switchMap یا Unsubscribe کردن دستی، مستقیماً یک ResourceRef دریافت می‌کنید.
   //اجرای خودکار و Eager: به محض فراخوانی در کامپوننت اجرا می‌شود (نیازی به subscribe() یا async pipe در تمپلیت ندارد).
-  activeSymbolDetail=httpResource<Todo>(()=>({
-    url:`https://jsonplaceholder.typicode.com/todos/${10}`,
+  todoHttpResource=httpResource<Todo>(()=>({
+    url:`https://jsonplaceholder.typicode.com/todos/${this.todoIdVal}`,
     method:'GET',
+    
   }))
 
 
@@ -65,10 +67,16 @@ export class AppComponent {
   //سازگاری کامل با کدهای قدیمی (Legacy Code): اگر سرویس‌های پروژه بر پایه Observable یا HttpClient قدیمی باشند، بدون دست زدن به سرویس‌ها می‌توانید خروجی آن‌ها را به Signal تبدیل کنید.
   // استفاده از قدرتمندی اپراتورهای RxJS: می‌توانید داخل تابع loader از قدرت اپراتورهایی مثل debounceTime ،retry ،catchError یا distinctUntilChanged استفاده کنید و نتیجه نهایی را سیگنالی تحویل بگیرید.
   // مدیریت خودکار Unsubscribe: برخلاف toSignal معمولی که ممکن است چالش‌های Clean-up داشته باشد، rxResource لغو اشتراک و Clean-up درخواست‌های قبلی را هنگام تغییر پارامترها خودکار انجام می‌دهد.
-  todoRxResource=rxResource({
-    params:()=>this.todoId,
-    stream:()=>this.http.get<Todo>(`https://jsonplaceholder.typicode.com/todos/${this.todoId()}`)
-  })
+  // todoRxResource=rxResource({
+  //   params:()=>this.todoId,
+  //   stream:()=>this.http.get<Todo>(`https://jsonplaceholder.typicode.com/todos/${this.todoId()}`)
+  // })
+
+  onClickChangeId(){
+    // this.todoId.update(v=>++v);
+    this.todoIdVal+=1
+    console.log(this.todoId());
+  }
 
 }
 

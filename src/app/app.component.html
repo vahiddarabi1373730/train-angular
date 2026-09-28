@@ -1,13 +1,15 @@
-@if (todo.status()) {
-  <span>Loading...</span>
-}
+<!--@if (todo.status()) {-->
+<!--  <span>Loading...</span>-->
+<!--}-->
 
 @if (todoHttpResource.value();as todo) {
   <h1>{{todo.title}}</h1>
 
 }
 
-@if (todoRxResource.value();as todo) {
-  <h1>{{todo.completed}}</h1>
+<!--@if (todoRxResource.value();as todo) {-->
+<!--  <h1>{{todo.completed}}</h1>-->
 
-}
+<!--}-->
+
+<button (click)="onClickChangeId()">Change Id</button>
