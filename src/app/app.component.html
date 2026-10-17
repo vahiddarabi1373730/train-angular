@@ -1,0 +1,60 @@
+<!--: استفاده از FormRoot باعث می‌شود با کلیک روی دکمه Submit، تمام فیلدها “Touched” شوند (تا کاربر ارورها را ببیند) و اگر فرم Valid بود، اکشن اجرا شود.-->
+@if(loginForm().submitting()){
+  <h1>در حال ارسال فرم</h1>
+
+}@else{
+  <form [formRoot]="loginForm">
+    @if (!loginForm.email().hidden()) {
+      <input [formField]="loginForm.email" placeholder="Email" />
+    }
+    <input [formField]="loginForm.password" placeholder="password" />
+    <input [formField]="loginForm.confirmPassword" placeholder="confirmPassword" />
+    <fieldset>
+      <input [formField]="loginForm.address.city" placeholder="city" />
+      <input [formField]="loginForm.address.street" placeholder="street" />
+    </fieldset>
+    <p>{{ loginForm.address.city().value() }}</p>
+    <h1>{{ loginForm.email().value() }}</h1>
+    <h3>{{ loginForm.password().value() }}</h3>
+    <h6>{{ loginModel().address.street }}</h6>
+
+    @if (loginForm.email().invalid() && loginForm.email().touched() && loginForm.email().dirty()) {
+      @for (error of loginForm.email().errors();track error){
+        @if (error.kind==='required') {
+          <h1>{{error.message}}</h1>
+        }
+      }
+    }
+
+    @for (error of loginForm.address.city().errors();track error){
+      @if (error.kind==='disabled') {
+        <p>این غیر فعال شد</p>
+      }
+    }
+
+    @for (error of loginForm.email().errors();track error) {
+      @if (error.kind==='pattern' && loginForm.email().dirty()&& loginForm.email().touched()) {
+        <h4>{{error.message}}</h4>
+      }
+    }
+    @if (loginForm.email().disabled()) {
+      <h3>Email Is Disabled</h3>
+    }
+
+    @for (error of loginForm.address.city().errors() ; track error) {
+      @if(error.kind==='custom' && error.fieldTree().dirty() && error.fieldTree().touched()){
+        <h2>{{error.message}}</h2>
+      }
+    }
+
+    @for (error of loginForm().errors();track error) {
+      @if (error.kind==='same' && loginForm().dirty()&& loginForm().touched()) {
+        <h4>{{error.message}}</h4>
+      }
+    }
+
+<!--    <button (click)="onUpdate()">Update</button>-->
+    <button type="submit">formRoot</button>
+  </form>
+
+}
