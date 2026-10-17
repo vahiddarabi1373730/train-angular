@@ -1,0 +1,37 @@
+تمام مقادیر استریم اصلی را نادیده می‌گیرد (Skip می‌کند) تا لحظه‌ای که Observable دوم اولین مقدار خود را منتشر کند؛ از آن لحظه به بعد، استریم اصلی بدون مانع عبور داده می‌شود.
+
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { skipUntil } from 'rxjs/operators';
+
+@Component({ ... })
+export class EditUserComponent implements OnInit {
+  form = new FormGroup({
+    username: new FormControl(''),
+    email: new FormControl('')
+  });
+
+  // تریگری برای اعلام پایان مقداردهی اولیه فرم
+  private formInitialized$ = new Subject<void>();
+
+  ngOnInit() {
+    // ۱. گوش دادن به تغییرات فرم فقط پس از آماده شدن کامل دیتا
+    this.form.valueChanges.pipe(
+      skipUntil(this.formInitialized$) // 👈 تا سیگنال نیاید، تمام ایونت‌ها رد می‌شوند
+    ).subscribe(() => {
+      this.isDirty = true;
+      console.log('کاربر واقعاً فرم را ویرایش کرد!');
+    });
+
+    // ۲. لود دیتا از API
+    this.userService.getUser().subscribe(userData => {
+      this.form.patchValue(userData); // این خط valueChanges تولید می‌کند، اما skipUntil آن را فیلتر می‌کند
+
+      // حالا که دیتا ست شد، دروازه را باز کن
+      this.formInitialized$.next();
+      this.formInitialized$.complete();
+    });
+  }
+}
+
